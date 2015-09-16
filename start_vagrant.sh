@@ -1,3 +1,11 @@
+printf "making rsa keys"
+
+mkdir .ssh
+
+chmod 600 .ssh
+
+ssh-keygen -t rsa -b 4096 -f .ssh/id_rsa -N ''
+
 vagrant up --provision #| grep -v Default
 
 cd .ssh

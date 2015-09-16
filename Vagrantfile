@@ -2,9 +2,7 @@ Vagrant.configure(2) do |config|
   config.vm.box = "phusion/ubuntu-14.04-amd64"
   config.vm.box_url = "https://vagrantcloud.com/phusion/boxes/ubuntu-14.04-amd64"
   config.vm.network "private_network", ip: "192.168.254.72"
-  #config.ssh.host = "192.168.254.72"
-  #config.ssh.username = "itmarkets"
-  #config.ssh.private_key_path = ".ssh/id_rsa"
+  config.vm.syncedfile ".ssh" "/.tmpssh"
 
   config.vm.provider :vmware_fusion do |vf, override|
     vf.customize ["modifyvm", :id, "--name", "test-devops" ]
