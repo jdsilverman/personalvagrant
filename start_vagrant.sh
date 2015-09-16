@@ -28,7 +28,7 @@ do
 done
 
 
-ansible-playbook ../../../noodle/build/ansible/noodlemarkets_demo.yml -i ../test/demo --extra-vars "hosts=192.168.254.72:22 user=itmarkets ec2_name_tag=temp" --private-key ../test/.ssh/id_rsa  --vault-password-file .vault_pass.txt #| grep -v Default
+ansible-playbook noodlemarkets_demo.yml -i ../test/demo --extra-vars "hosts=192.168.254.72:22 user=itmarkets ec2_name_tag=temp" --private-key ../test/.ssh/id_rsa  --vault-password-file .vault_pass.txt #| grep -v Default
 
 cd ../test
 

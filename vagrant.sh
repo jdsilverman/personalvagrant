@@ -1,12 +1,11 @@
 #!/bin/bash
 
-adduser --disabled-password --gecos "" --quiet itmarkets
+sudo adduser --disabled-password --gecos "" --quiet itmarkets
 sudo adduser itmarkets vagrant
 sudo su itmarkets
-mkdir -p /home itmarkets/.ssh
-echo -e "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCeRTQCcOsZmhbILvuHKxZQnvJgCx3Sn4yZrBbUw+zL+Rtj56vshTAGgGGakjd96CzciaAuA7KclBjC1tAcsLufKc61brA4gbK3Y44lpnYpgXuZNGKh04PJtpYLVRKPf5RtfAacyGtIy6gSIH4JkPUTFovnDZYlQfqzN2PTD8Kex4rh73BBrsIgdU+BPt2D2ygIVjwtT8CAqbbswDf1alC5zzjoeYqb6W+ExAFVvwxXwttsMbxw1XVQgGCk2Yg4YQxTyfub96qcGwElQ6UC684NPcjBJ1Wi4CIleK8J2J36UMhLo+IZx9FSA3iCBwZXJpD3Aq7KsBaob/3jglgHDm/f Meru@ip-10-0-4-194.ec2.internal" > /home itmarkets/.ssh/authorized_keys/id_rsa.pub
-sudo chown build /home itmarkets/.ssh
-sudo chown itmarkets /home itmarkets/.ssh/authorized_keys
-sudo chmod 744 /home itmarkets/.ssh
-sudo chmod 600 /home itmarkets/.ssh/authorized_keys
- 
+mkdir -p /home/itmarkets/.ssh
+echo -e "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDjePYWLLYlquoam/SVSoQpx/rfCaaSQWLlMEJ0xPgdzy+tJLO+f83IRkRp8iaiGMdf4RTAf9ih8KVGOnYwyTzBA49GAoToH0/NZnkRvcHdFBqZolYKzyV/6Rt+06B+aX2I8ggsE6V5Q+L6DBybXI5BX74+rf7ynJHw8Nb+WRwRoPv1BhMUGiaFDEAuPy6o56G/cPhZ5fm0YeHqYp/mEOcjiCr935N0myo2j4abW6o3sPr+2xlbi3qMAwnbhmqz1vQazZQ0LLpwMxN+HVkjtax7sPvYVesyw+DENzonCkw4Gooh+H8SIUXI3hf0fuBHDETtD9ZgY0UdRrhFJdeW0a2f Meru@ip-10-0-4-106.ec2.internal" > /home/itmarkets/.ssh/authorized_keys
+sudo chown itmarkets /home/itmarkets/.ssh
+sudo chown itmarkets /home/itmarkets/.ssh/authorized_keys
+sudo chmod 700 /home/itmarkets/.ssh
+sudo chmod 600 /home/itmarkets/.ssh/authorized_keys
