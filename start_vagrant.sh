@@ -1,22 +1,26 @@
-printf "making rsa keys"
+printf "making rsa keys\n"
+
+rm -Rf .ssh
 
 mkdir .ssh
 
-chmod 600 .ssh
-
 ssh-keygen -t rsa -b 4096 -f .ssh/id_rsa -N ''
 
+printf "stopping vagrant if it is running\n"
+
+vagrant destroy -f
+
+printf "start vagrant\n"
 vagrant up --provision #| grep -v Default
 
-cd .ssh
 
-chmod 600 id_rsa
-
-cd ../../ansible
+cd ../ansible
 
 read -s -p "What is your ansible-vault password?" password
 echo $password >> .vault_pass.txt
 
+
+printf "\ntesting your ansible scripts\n"
 for FILE in *[yml]
 do
 	case $FILE in
