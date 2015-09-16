@@ -1,6 +1,10 @@
 vagrant up --provision #| grep -v Default
 
-cd ../ansible
+cd .ssh
+
+chmod 600 id_rsa
+
+cd ../../ansible
 
 read -s -p "What is your ansible-vault password?" password
 echo $password >> .vault_pass.txt
@@ -28,8 +32,8 @@ do
 done
 
 
-ansible-playbook noodlemarkets_demo.yml -i ../test/demo --extra-vars "hosts=192.168.254.72:22 user=itmarkets ec2_name_tag=temp" --private-key ../test/.ssh/id_rsa  --vault-password-file .vault_pass.txt #| grep -v Default
+ansible-playbook noodlemarkets_demo.yml -i ../personalvagrant/demo --extra-vars "hosts=192.168.254.72:22 user=itmarkets ec2_name_tag=temp" --private-key ../personalvagrant/.ssh/id_rsa  --vault-password-file .vault_pass.txt #| grep -v Default
 
-cd ../test
+cd ../personalvagrant
 
 rm ../ansible/.vault_pass.txt
